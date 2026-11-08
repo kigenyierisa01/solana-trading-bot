@@ -261,7 +261,7 @@
 #              seq    : int    — harness sequence counter (echoed in response)
 #              events : list   — zero or more CreateEvent / TradeEvent /
 #                                CompleteEvent objects
-#            Response: {"type": "orders", "seq": <echoed>, "orders": [...]}
+#            Response: {"type": "reply", "seq": <echoed>, "orders": [...]}
 #            stdout is flushed immediately after each response so the harness
 #            can pipeline slot results without buffering.
 #
@@ -1150,7 +1150,7 @@ class Bot:
         Returns
         -------
         dict
-            Response object: ``{"type": "orders", "seq": ..., "orders": [...]}``.
+            Response object: ``{"type": "reply", "seq": ..., "orders": [...]}``.
 
         Raises
         ------
@@ -1172,7 +1172,7 @@ class Bot:
             current_slot,
             sequence_number,
         )
-        return {"type": "orders", "seq": sequence_number, "orders": slot_orders}
+        return {"type": "reply", "seq": sequence_number, "orders": slot_orders}
 
     # ------------------------------------------------------------------
     # Slot-level order construction
